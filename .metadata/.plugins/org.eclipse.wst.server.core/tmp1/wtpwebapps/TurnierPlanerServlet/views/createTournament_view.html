@@ -1,0 +1,88 @@
+<div class="col-md-8 col-md-offset-1"
+	ng-controller="CreateTournamentController">
+	<h2>{{newTournamentHeader}}</h2>
+
+	<form class="form-horizontal" name="newTournamentForm"
+		id="newTournamentForm" role="form" ng-submit="saveNewTournament()">
+		<div class="form-group">
+			<label class="control-label col-sm-5">Turnier Nr.: </label>
+
+			<div class="col-sm-6">
+				<input type="text" name="tournamentId" class="form-control"
+					id="tournamentId" data-ng-model="fields.tournamentId" ng-disabled="true">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5 createTour" for="tournamentName">Name
+				des Turniers:</label>
+
+			<div class="col-sm-6">
+				<input type="text" name="name" class="form-control"
+					ng-model="fields.name" id="tournamentName"
+					placeholder="Mein Turnier" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="gameDuration">Dauer
+				eines Spieles (Minuten):</label>
+
+			<div class="col-sm-6">
+				<input type="number" name="duration" min="1" max="120"
+					class="form-control" ng-model="fields.duration" id="gameDuration"
+					placeholder="15 Minuten" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="tournamentType">Turnier
+				Typ:</label>
+
+			<div class="col-sm-6">
+				<select class="form-control" ng-change="typeChanged()" name="type"
+					ng-model="fields.type" id="tournamentType" required>
+					<option value="RoundRobin">Round Robin</option>
+					<option value="Mix">Mix</option>
+					<option value="KO">KO</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-5" for="count">Anzahl der
+				Teams:</label>
+
+			<div class="col-sm-6">
+				<input type="number" name="count" ng-change="changedTeamCount()"
+					min="3" max="20" value=3 class="form-control"
+					ng-model="fields.count" id="count" placeholder="mind. 3 Teams"
+					required>
+			</div>
+
+		</div>
+		<br />
+
+		<div id="teamnames" class="form-group"
+			ng-repeat="team in fields.teams">
+			<div class="form-group">
+				<label class="control-label col-sm-5" for="team{{$index+1}}">Team
+					{{$index+1}}</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" name="team{{$index+1}}"
+						id="team{{$index+1}}" ng-model="team.name" value="team.name">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-11">
+				<button type="submit"
+					ng-disabled="newTournamentForm.name.$error.required ||
+                newTournamentForm.duration.$error.required ||
+                newTournamentForm.type.$error.required ||
+                newTournamentForm.count.$error.required"
+					class="btn btn-default pull-right" ng-submit="saveNewTournament()">
+					{{submitBtnTxt}}</button>
+			</div>
+		</div>
+	</form>
+</div>
+

@@ -1,0 +1,82 @@
+<div class="col-md-8 col-md-offset-1">
+	<h2>Registrieren</h2>
+	<form name="regForm" id="newRegisterForm"
+		class="form-horizontal col-md-offset-2" role="form"
+		ng-submit="createUser()">
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="registerName">Name:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" ng-model="myUser.name"
+					id="registerName" placeholder="Max" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="registerNachname">Nachname:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" ng-model="myUser.surname"
+					id="registerNachname" placeholder="Mustermann" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="registerBenutzername">Benutzername:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" ng-model="myUser.username"
+					value={{myUser.username}} id="registerBenutzername"
+					placeholder="Mmustermann" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="registerEmail">Email:</label>
+			<div class="col-sm-6"
+				ng-class="{ 'has-error' : regForm.regEmail.$error.email }">
+				<input type="email" name="regEmail" ng-model="myUser.email"
+					value={{myUser.email}} class="form-control" id="registerEmail"
+					placeholder="someone@example.de" required> <span
+					class=" help-block" ng-show="regForm.regEmail.$error.email">Bitte
+					eine gueltige E-Mail eingeben.</span>
+
+
+
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="registerPwd">Passwort:</label>
+			<div class="col-sm-6"
+				ng-class="{ 'has-error' : regForm.regPwd.$error.minlength }">
+				<input type="password" name="regPwd" class="form-control"
+					ng-model="myUser.password" id="registerPwd" ng-minlength="8"
+					placeholder="Passwort eingeben" required> <span
+					class="help-block" ng-show="regForm.regPwd.$error.minlength">Mindestens
+					8 Zeichen.</span>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<div class="col-sm-9">
+				<button
+					ng-disabled="!myUser.name || !myUser.surname || !myUser.username || !myUser.password || !myUser.email"
+					type="submit" class="btn btn-default pull-right">Registrieren</button>
+				<div class="col-sm-5 col-sm-offset-4">
+					<span class="alert-danger" ng-if="error"><strong>{{
+							error }}</strong></span>
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<!--<div class="form-group">-->
+		<!--<div class="col-sm-9">-->
+		<!--<button type="button" class="btn btn-default pull-right" ng-click="showUser()">Test</button>-->
+		<!--</div>-->
+		<!--</div>-->
+
+
+
+	</form>
+
+</div>

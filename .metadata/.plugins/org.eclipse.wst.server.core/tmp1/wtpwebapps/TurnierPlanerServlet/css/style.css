@@ -1,0 +1,48 @@
+.container-style {
+    padding-top: 70px; /* Whatever you want. */
+}
+.navbar-fixed-top {
+    height: 70px; /* Whatever you want. */
+}
+
+/*body {*/
+    /*padding-top: 65px;*/
+/*}*/
+.myTable tbody tr td:first-child{
+    font-weight: bold;
+}
+
+.navbar-text:hover {
+    text-decoration: none;
+
+}
+
+.navbar-default {
+    background-color: rgba(0, 92, 9, 0.82);
+
+}
+.navbar-default .navbar-text {
+    color: white;
+}
+.navbar .nav > li > a {
+
+    color: white;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: black;
+
+}
+
+
+.btn-default {
+    color: white;
+    background-color: rgba(0, 92, 9, 0.82);;
+}
+.btn-default:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.82);;
+}
+
+.activeTab{
+    background-color: rgba(68, 229, 64, 0.37);
+}

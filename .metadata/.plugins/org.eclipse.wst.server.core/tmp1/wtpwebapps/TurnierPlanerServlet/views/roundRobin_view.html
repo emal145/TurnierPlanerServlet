@@ -1,0 +1,88 @@
+<div class="col-md-9 col-md-offset-1"
+	ng-controller="RoundRobinController">
+	<h2>Turnier: {{currentTournament.name}}</h2>
+
+	<form class="form-horizontal col-md-offset-2" ng-init="initData()"
+		role="form">
+		<div class="form-group">
+
+			<table class="table table-hover myTable">
+				<thead>
+					<tr>
+						<th class="text-center"></th>
+						<th class="text-center"
+							ng-repeat="team in currentTournament.teams">{{team.name}}</th>
+						<th class="text-center">Spiele <br />(Punkte)
+						</th>
+						<th class="text-center">Platz <br />(Punkte)
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="team in currentTournament.teams">
+						<td>{{team.name}}</td>
+						<td class="text-center"
+							ng-repeat="result in currentTournament.teams"><span>{{$parent.points[$parent.$index][$index]}}</span>
+						</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+	</form>
+
+	<form ng-submit="submit()" id="resultsForm"
+		class="form-vertical col-sm-12 col-md-offset-1">
+		<div ng-show="showDiv">
+
+			<div class="col-sm-3 col-md-offset-1">
+				<label class="control-label col-sm-10" for="home">Heim Team:</label>
+				<select class="form-control" name="home" ng-model="homeTeam"
+					id="home" required>
+					<option ng-repeat="team in currentTournament.teams"
+						value="{{$index+1}}">{{team.name}}</option>
+				</select>
+			</div>
+			<div class="col-sm-3 col-md-offset-0">
+
+				<label class="control-label col-sm-10" for="guest">Gast
+					Team:</label> <select class="form-control" name="guest"
+					ng-model="guestTeam" id="guest">
+					<option ng-repeat="team in currentTournament.teams"
+						value="{{$index+1}}">{{team.name}}</option>
+				</select>
+			</div>
+			<div class="col-sm-2 col-md-offset-0">
+				<label class="control-label col-sm-15" for="homePoints">Punkte
+					Heim</label> <input type="number" name="homePoints" min="0" max="100"
+					class="form-control" ng-model="homePoints" id="homePoints" required>
+			</div>
+			<div class="col-sm-2 col-md-offset-0">
+
+				<label class="control-label col-sm-15" for="guestPoints">Punkte
+					Gast</label> <input type="number" name="guestPoints" min="0" max="100"
+					class="form-control" ng-model="guestPoints" id="guestPoints"
+					required>
+			</div>
+			<div class="form-group col-sm-11">
+				<br />
+				<button type="submit" class="btn btn-default pull-right"
+					name="submitResults" ng-click="editTournamentResult()">
+					Speichern</button>
+			</div>
+		</div>
+		<div class="col-sm-11">
+			<br />
+			<button class="btn btn-default pull-right" ng-click="hideShowDiv()">
+				Ergebnisse bearbeiten</button>
+		</div>
+	</form>
+
+</div>
+</div>
+
+

@@ -1,0 +1,52 @@
+<div class="col-md-9 col-md-offset-1">
+	<h2>Meine Turniere</h2>
+	<form class="form-horizontal col-md-offset-2" role="form">
+		<div class="form-group">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="text-center"></th>
+						<th>Name</th>
+						<th class="text-center">Ansehen</th>
+						<th class="text-center">Bearbeiten</th>
+						<th class="text-center">Editor hinzufügen</th>
+						<th class="text-center">Löschen</th>
+						<th class="text-center">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tournament in tournaments"
+						ng-class="{out:'danger', inactive:'active', active:'success'}[tournament.status]"
+						ng-switch on="tournament.status">
+
+
+						<td>{{$index+1}}</td>
+						<td>{{tournament.name}}</td>
+						<!-- <td class="text-center"><a href="#/roundRobin_view/{{tournament.id}}"><span class="glyphicon glyphicon-eye-open"></span></a></td>-->
+						<td class="text-center"><a
+							href="#/roundRobin_view/{{$index}}"><span
+								class="glyphicon glyphicon-eye-open"></span></a></td>
+						<td class="text-center"><button class="btn-link"
+								ng-click="editTournament($index)">
+								<span class="glyphicon glyphicon-edit"></span>
+							</button></td>
+						<td class="text-center"><button class="btn-link">
+								<span class="glyphicon glyphicon-plus-sign"></span>
+							</button></td>
+						<td class="text-center"><button class="btn-link"
+								ng-click="deleteTournament($index)">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button></td>
+						<td class="text-center" ng-switch-when="out">Beendet</td>
+						<td class="text-center" ng-switch-when="inactive">Ausstehend</td>
+						<td class="text-center" ng-switch-when="active">Aktiv</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+		</div>
+	</form>
+</div>
+
+i
