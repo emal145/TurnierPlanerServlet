@@ -196,3 +196,4 @@
 0:0:0:0:0:0:0:1 - - [11/May/2016:11:55:26 +0200] "GET /TurnierPlanerServlet/controllers/KOController.js HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [11/May/2016:11:55:26 +0200] "GET /TurnierPlanerServlet/views/createTournament_view.html HTTP/1.1" 304 -
 127.0.0.1 - - [11/May/2016:11:55:33 +0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [11/May/2016:11:57:58 +0200] "GET /TurnierPlanerServlet/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 304 -
